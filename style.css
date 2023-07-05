@@ -4,10 +4,6 @@
   }
 }
 
-.body {
-  background: var(--tg-theme-secondary-bg-color);
-}
-
 .container {
 display: flex;
 flex-direction: column;
