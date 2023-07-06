@@ -54,26 +54,24 @@
 <script>
   // Function to handle button click, send data to server, and close the web app
   function sendDataAndClose(data) {
+    const requestData = { data };
+
     fetch('/send-message', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ data }),
+      body: JSON.stringify(requestData),
     })
       .then((response) => {
-        if (response.ok) {
-          alert('Data sent to server!');
-          window.close(); // Close the web app
-        } else {
-          alert('Failed to send data to server.');
+        if (!response.ok) {
+          throw new Error('Failed to send data to server.');
         }
+        
+        alert('Data sent to server!');
+        window.close(); // Close the web app
       })
       .catch((error) => {
         console.error('Error:', error);
-        alert('Failed to send data to server.');
-      });
-  }
-</script>
-</body>
-</html>
+        alert(error.message);
+     
