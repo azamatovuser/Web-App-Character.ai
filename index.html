@@ -53,6 +53,7 @@
   </div>
   <script src="https://telegram.org/js/telegram-webapp.js" async></script>
 <script>
+  let tg = window.Telegram.WebApp;
   function sendDataAndClose(hero) {
     // Send a command to the Telegram bot based on the selected hero
     if (hero === 'mario') {
