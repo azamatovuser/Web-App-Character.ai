@@ -52,18 +52,42 @@
     </div>
   </div>
   <script src="https://telegram.org/js/telegram-webapp.js" async></script>
-  <script type="text/javascript">
-    let tg = window.Telegram.WebApp;
-    function = sendDataAndClose(data) {
-      const requestData = data;
-        tg.sendData(requestData)
-        tg.close()
+<script>
+  function sendDataAndClose(hero) {
+    // Send a command to the Telegram bot based on the selected hero
+    if (hero === 'mario') {
+      sendCommand('/sendsms');
+    } else if (hero === 'albert') {
+      sendCommand('/openwebapp');
     }
-    
-  </script>
-</body>
-  <script type="text/javascript">
-    Telegram.WebApp.expand();
-    tg.expand();
+
+    // Close the web app window
+    window.close();
+  }
+
+  function sendCommand(command) {
+    // Send an HTTP request to the Telegram bot API to execute the command
+    fetch('https://api.telegram.org/bot6356443962:AAF-e2CLC6D-Hc7nU4ckI29iEcXhERGa58Q/sendMessage', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        chat_id: '6022731073',
+        text: command,
+      }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log('Command sent successfully');
+        } else {
+          console.log('Failed to send command');
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
 </script>
+</body>
 </html>
