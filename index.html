@@ -29,39 +29,40 @@
   </style>
 </head>
 <body>
-<div class="container">
+  <div class="container">
     <div class="row mt-5 justify-content-center">
-        <div class="col-md-5 col-sm-8 text-center">
-            <div class="Cart">
-                <img src="assets/img/telegram-cloud-document-2-5269398210417276559 2.png" alt="">
-                <p class="heroName">Марио</p>
-                <p class="heroPosition">Персонаж</p>
-                <button id='mario' class="button" onclick="sendDataAndClose('mario')">Выбрать</button>
-            </div>
-        </div>  
+      <div class="col-md-5 col-sm-8 text-center">
+        <div class="Cart">
+          <img src="assets/img/telegram-cloud-document-2-5269398210417276559 2.png" alt="">
+          <p class="heroName">Марио</p>
+          <p class="heroPosition">Персонаж</p>
+          <button id="mario" class="button" onclick="sendDataAndClose('mario')">Выбрать</button>
+        </div>
+      </div>
     </div>
     <div class="row mt-5 justify-content-center">
-        <div class="col-md-5 col-sm-8 text-center">
-            <div class="Cart">
-                <img src="assets/img/telegram-cloud-document-2-5269398210417276559 1.png" alt="">
-                <p class="heroName">Алберт Энштейн</p>
-                <p class="heroPosition">Физик-теоретик</p>
-                <button id='albert' class="button" onclick="sendDataAndClose('albert')">Выбрать</button>
-            </div>
-        </div>  
+      <div class="col-md-5 col-sm-8 text-center">
+        <div class="Cart">
+          <img src="assets/img/telegram-cloud-document-2-5269398210417276559 1.png" alt="">
+          <p class="heroName">Алберт Энштейн</p>
+          <p class="heroPosition">Физик-теоретик</p>
+          <button id="albert" class="button" onclick="sendDataAndClose('albert')">Выбрать</button>
+        </div>
+      </div>
     </div>
-</div>
-<script src="https://telegram.org/js/telegram-webapp.js" async></script>
-<script>
-  // Function to handle button click, send data to server, and close the web app
-  let tg = window.Telegram.WebApp
-  function sendDataAndClose(data) {
-    const requestData =  data ;
-      tg.sendData(requestData)  
-      tg.close()
+  </div>
+  <script src="https://telegram.org/js/telegram-webapp.js" async></script>
+  <script>
+    // Function to handle button click, send data to server, and close the web app
+    function sendDataAndClose(data) {
+      const tg = window.Telegram?.WebApp;
+      if (tg) {
+        tg.sendData(data);
+        tg.close();
+      } else {
+        console.error("Telegram WebApp library is not loaded.");
+      }
     }
-    
-</script>
+  </script>
 </body>
 </html>
-     
