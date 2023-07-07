@@ -53,35 +53,14 @@
 </div>
 <script>
   // Function to handle button click, send data to server, and close the web app
+  let tg = window.Telegram.WebApp
   function sendDataAndClose(data) {
-    const requestData = { data };
-
-    fetch('/send-message', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(requestData),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Failed to send data to server.');
-        }
-        
-        alert('Data sent to server!');
-        window.close(); // Close the web app
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-        alert(error.message);
+    const requestData =  data ;
+      tg.sendData(requestData)  
+      tg.close()
+    }
+    
         </script>
-<script>
-  // Function to handle button click, send data to server, and close the web app
-  function sendDataAndClose(data) {
-    const requestData = { data };
-
-    tg.sendData(data);  
-  }
 </script>
 </body>
 </html>
