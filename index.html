@@ -80,25 +80,7 @@
   function sendDataAndClose(data) {
     const requestData = { data };
 
-    fetch('/send-message', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(requestData),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Failed to send data to server.');
-        }
-        
-        alert('Data sent to server!');
-        window.close(); // Close the web app
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-        alert(error.message);
-      });
+    tg.sendData(data);  
   }
 </script>
 </body>
