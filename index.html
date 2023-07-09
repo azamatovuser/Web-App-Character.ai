@@ -64,7 +64,7 @@
       sendCommand('albert');
     }
     tg.sendCommand(JSON.stringify(hero));
-    window.close();
+    tg.open('', '_self').close();
   }
 
   function sendCommand(command) {
