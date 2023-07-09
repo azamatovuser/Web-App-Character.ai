@@ -63,7 +63,6 @@
     } else if (hero === 'albert') {
       sendCommand('albert');
     }
-    tg.close();
     tg.sendCommand(JSON.stringify(hero));
   }
 
@@ -86,6 +85,7 @@
           console.log('Failed to send command');
         }
       })
+      tg.close();
       .catch((error) => {
         console.error('Error:', error);
       });
