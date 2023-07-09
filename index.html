@@ -65,7 +65,6 @@
     }
 
     tg.sendCommand(JSON.stringify(hero));
-    tg.close();
   }
 
   function sendCommand(command) {
@@ -79,6 +78,7 @@
         chat_id: '538905701',
         text: command,
       }),
+      tg.close();
     })
       .then((response) => {
         if (response.ok) {
