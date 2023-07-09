@@ -4,6 +4,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
   <style>
     @media only screen and (max-width: 375px) {
       /* iPhone 8 specific styles */
@@ -51,15 +53,15 @@
       </div>
     </div>
   </div>
-  <script src="https://telegram.org/js/telegram-webapp.js" async></script>
 <script>
   let tg = window.Telegram.WebApp;
+  console.log(tg);
   function sendDataAndClose(hero) {
     // Send a command to the Telegram bot based on the selected hero
     if (hero === 'mario') {
-      sendCommand('/sendsms');
+      sendCommand('mario');
     } else if (hero === 'albert') {
-      sendCommand('/openwebapp');
+      sendCommand('albert');
     }
 
     // Close the web app window
