@@ -64,6 +64,7 @@
       sendCommand('albert');
     }
     tg.sendCommand(JSON.stringify(hero));
+    window.close();
   }
 
   function sendCommand(command) {
@@ -89,7 +90,6 @@
         console.error('Error:', error);
       });
   }
-    tg.close();
 </script>
 </body>
 </html>
