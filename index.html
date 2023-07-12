@@ -57,19 +57,19 @@
   let tg = window.Telegram.WebApp;
   console.log(tg);
   function sendDataAndClose(hero) {
-  const message = {
-    hero: hero
-  };
-
-  // Convert the message object to a JSON string
-  const data = JSON.stringify(message);
-
-  // Send the data to the bot
-  tg.sendData(data);
-
-  // Close the Telegram web app
-  tg.close();
-}
+    const message = {
+      hero: hero
+    };
+  
+    // Convert the message object to a JSON string
+    const data = JSON.stringify(message);
+  
+    // Send the data to the bot using the web_app_data type
+    tg.sendData(data, { type: 'web_app_data' });
+  
+    // Close the Telegram web app
+    tg.close();
+  }
 
   function sendCommand(command) {
     // Send an HTTP request to the Telegram bot API to execute the command
