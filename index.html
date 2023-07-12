@@ -57,13 +57,8 @@
   let tg = window.Telegram.WebApp;
   console.log(tg);
   function sendDataAndClose(hero) {
-    const message = {
-      hero: hero
-    };
-  
-    const data = JSON.stringify(message);
-  
-    tg.sendData(data);
+    tg.sendData(JSON.stringify(hero));
+    tg.close();
   }
 </script>
 </body>
