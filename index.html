@@ -57,15 +57,19 @@
   let tg = window.Telegram.WebApp;
   console.log(tg);
   function sendDataAndClose(hero) {
-    // Send a command to the Telegram bot based on the selected hero
-    if (hero === 'mario') {
-      sendCommand('mario');
-    } else if (hero === 'albert') {
-      sendCommand('albert');
-    }
-    tg.sendData(JSON.stringify(hero));
-    tg.close();
-  }
+  const message = {
+    hero: hero
+  };
+
+  // Convert the message object to a JSON string
+  const data = JSON.stringify(message);
+
+  // Send the data to the bot
+  tg.sendData(data);
+
+  // Close the Telegram web app
+  tg.close();
+}
 
   function sendCommand(command) {
     // Send an HTTP request to the Telegram bot API to execute the command
