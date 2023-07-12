@@ -56,18 +56,8 @@
 <script>
   // Функция для отправки данных
   function sendDataAndClose(hero) {
-    // Создание объекта с данными для отправки
-    var data = {
-      "web_app_data": hero
-    };
+    window.Telegram.WebApp.sendData(hero);
 
-    // Преобразование объекта в строку JSON
-    var jsonData = JSON.stringify(data);
-
-    // Отправка данных на сервер Telegram
-    window.Telegram.WebApp.sendData(jsonData);
-
-    // Закрытие web app
     window.Telegram.WebApp.close();
   }
 
