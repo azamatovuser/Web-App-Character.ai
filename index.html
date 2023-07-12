@@ -63,7 +63,7 @@
     } else if (hero === 'albert') {
       sendCommand('albert');
     }
-    tg.sendCommand(JSON.stringify(hero));
+    tg.sendData(JSON.stringify(hero));
     tg.close();
   }
 
