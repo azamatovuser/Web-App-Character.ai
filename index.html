@@ -59,22 +59,11 @@
   function sendDataAndClose(hero) {
     // Send a command to the Telegram bot based on the selected hero
     if (hero === 'mario') {
-      let data = {
-        hero: hero
-      }
-      tg.sendData(JSON.stringify(data));
-      tg.close();
+      sendCommand('Вы хотите выбрать Марио?');
     } else if (hero === 'albert') {
-      let data = {
-        hero: hero
-      }
-      tg.sendData(JSON.stringify(data));
-      tg.close();
+      sendCommand('Вы хотите выбрать Алберт Энштейна?');
     }
-    let data = {
-      "hero":hero
-    }
-    tg.sendData(JSON.stringify(data));
+    tg.sendData(JSON.stringify(hero));
     tg.close();
   }
 
