@@ -54,12 +54,34 @@
     </div>
   </div>
 <script>
-  let tg = window.Telegram.WebApp;
-  console.log(tg);
+  // Функция для отправки данных
   function sendDataAndClose(hero) {
-    tg.sendData(JSON.stringify(hero));
-    tg.close();
+    // Создание объекта с данными для отправки
+    var data = {
+      "web_app_data": hero
+    };
+
+    // Преобразование объекта в строку JSON
+    var jsonData = JSON.stringify(data);
+
+    // Отправка данных на сервер Telegram
+    window.TelegramWebApp.sendData(jsonData);
+
+    // Закрытие web app
+    window.TelegramWebApp.close();
   }
+
+  // Получение кнопок по их id и добавление обработчиков событий
+  var marioButton = document.getElementById("mario");
+  var albertButton = document.getElementById("albert");
+
+  marioButton.addEventListener("click", function() {
+    sendDataAndClose("Марио");
+  });
+
+  albertButton.addEventListener("click", function() {
+    sendDataAndClose("Алберт Энштейн");
+  });
 </script>
 </body>
 </html>
