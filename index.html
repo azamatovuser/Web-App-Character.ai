@@ -38,7 +38,7 @@
           <img src="assets/img/telegram-cloud-document-2-5269398210417276559 2.png" alt="">
           <p class="heroName">Марио</p>
           <p class="heroPosition">Персонаж</p>
-          <button id="mario" class="button" onclick="sendDataAndClose('mario')">Выбрать</button>
+          <button id="mario" class="button">Выбрать</button>
         </div>
       </div>
     </div>
@@ -48,7 +48,7 @@
           <img src="assets/img/telegram-cloud-document-2-5269398210417276559 1.png" alt="">
           <p class="heroName">Алберт Энштейн</p>
           <p class="heroPosition">Физик-теоретик</p>
-          <button id="albert" class="button" onclick="sendDataAndClose('albert')">Выбрать</button>
+          <button id="albert" class="button")">Выбрать</button>
         </div>
       </div>
     </div>
@@ -65,10 +65,10 @@
     var jsonData = JSON.stringify(data);
 
     // Отправка данных на сервер Telegram
-    window.TelegramWebApp.sendData(jsonData);
+    window.Telegram.WebApp.sendData(jsonData);
 
     // Закрытие web app
-    window.TelegramWebApp.close();
+    window.Telegram.WebApp.close();
   }
 
   // Получение кнопок по их id и добавление обработчиков событий
