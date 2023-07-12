@@ -56,9 +56,21 @@
 <script>
   // Функция для отправки данных
   function sendDataAndClose(hero) {
-    window.Telegram.WebApp.sendData(hero);
+    // Создание объекта с данными для отправки
+    var data = {
+      "web_app_data": hero
+    };
 
-    window.Telegram.WebApp.close();
+    // Преобразование объекта в строку JSON
+    var jsonData = JSON.stringify(data);
+
+    // Отправка данных на сервер Telegram
+    if (typeof window.Telegram.WebApp !== 'undefined') {
+      window.Telegram.WebApp.sendData(jsonData);
+      window.Telegram.WebApp.close();
+    } else {
+      console.log("TelegramWebApp не доступен");
+    }
   }
 
   // Получение кнопок по их id и добавление обработчиков событий
