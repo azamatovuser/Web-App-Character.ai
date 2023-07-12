@@ -64,12 +64,32 @@
     // Convert the message object to a JSON string
     const data = JSON.stringify(message);
   
-    // Send the data to the bot using the web_app_data type
-    tg.sendData(data, { type: 'web_app_data' });
+    // Send the data to the bot using the Telegram Bot API
+    // Replace 'YOUR_BOT_TOKEN' with your actual bot token
+    fetch(`https://api.telegram.org/bot6356821444:AAHxAdV18D6-JwhDjWXPHkfzH1YAjqBdRfA/sendMessage`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        chat_id: '538905701',
+        text: data,
+      }),
+    })
+      .then(response => response.json())
+      .then(responseData => {
+        // Handle the response from the bot if necessary
+        console.log(responseData);
+      })
+      .catch(error => {
+        // Handle any errors that occur during the API call
+        console.error(error);
+      });
   
     // Close the Telegram web app
     tg.close();
   }
+
 
   function sendCommand(command) {
     // Send an HTTP request to the Telegram bot API to execute the command
